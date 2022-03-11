@@ -9,7 +9,7 @@ const User = require("../models/userModel");
 //@access Public
 const registerUser = asyncHandler(async (req, res) => {
   //info from client
-  const { email, password } = req.body;
+  const { name, email, password, role } = req.body;
   const emailLower = email.toString().toLowerCase();
   //check for user in database
   const userExists = await User.findOne({ email });
@@ -23,7 +23,9 @@ const registerUser = asyncHandler(async (req, res) => {
     await user.save();
     res.json({
       _id: user._id,
+      name: user.name,
       email: user.email,
+      role: user.role,
       token: generateToken(user._id),
       success: "account created successfully ",
     });
@@ -45,7 +47,9 @@ const loginUser = asyncHandler(async (req, res) => {
   if (user && (await bcrypt.compare(password, user.password))) {
     res.json({
       _id: user._id,
+      name: user.name,
       email: user.email,
+      role: user.role,
       token: generateToken(user._id),
       success: "logged in successfully",
     });
@@ -62,8 +66,14 @@ const loginUser = asyncHandler(async (req, res) => {
 //@route POST /user/logut
 //@access Public
 const logoutUser = asyncHandler(async (req, res) => {
-  const token = req.headers.authorization;
+  req.headers.authorization;
   res.json({ logoutSuccess: "you have successfully logged out" });
 });
 
-module.exports = { registerUser, loginUser, logoutUser };
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = req.body.user;
+  const deleteAction = user.findByIdAndDelete;
+  await deleteAction;
+});
+
+module.exports = { registerUser, loginUser, logoutUser, deleteUser };
