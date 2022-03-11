@@ -38,11 +38,11 @@ mongoose
 //connect to mongo database (end)
 
 //routes (start)
-// app.use("create/main/route", const calling route);
+
 app.use("/user", user);
-app.use("/ticket", ticket);
-app.use("/program", program);
-app.use("/comment", comment);
+// app.use("/ticket", ticket);
+// app.use("/program", program);
+// app.use("/comment", comment);
 //routes (end)
 //code for deployment (start)
 if (process.env.NODE_ENV === "production") {
