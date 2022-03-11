@@ -3,6 +3,10 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const user = require("./routes/userRoutes");
+const ticket = require("./routes/ticketRoutes");
+const program = require("./routes/programRoutes");
+const comment = require("./routes/commentRoutes");
 
 //pulls info from dotenv folder (start)
 require("dotenv").config();
@@ -35,7 +39,10 @@ mongoose
 
 //routes (start)
 // app.use("create/main/route", const calling route);
-
+app.use("/user", user);
+app.use("/ticket", ticket);
+app.use("/program", program);
+app.use("/comment", comment);
 //routes (end)
 //code for deployment (start)
 if (process.env.NODE_ENV === "production") {
