@@ -48,7 +48,7 @@ const loginUser = asyncHandler(async (req, res) => {
   const { email, password } = await req.body;
   const emailLower = email.toString().toLowerCase();
   //check for user in database
-  const user = await User.findOne({ emailLower });
+  const user = await User.findOne({ email: emailLower });
   //response if user exists and password is correct
   if (user && (await bcrypt.compare(password, user.password))) {
     //send user info to front end
