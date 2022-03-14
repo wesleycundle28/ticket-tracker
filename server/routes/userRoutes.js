@@ -4,6 +4,9 @@ const { protect } = require("../middleware/protect");
 const {
   registerUser,
   loginUser,
+  getUsers,
+  getUser,
+  updateUser,
   logoutUser,
   deleteUser,
 } = require("../controllers/userControllers");
@@ -12,6 +15,12 @@ const {
 router.post("/register", registerUser);
 //login specific user
 router.post("/login", loginUser);
+//get all users
+router.get("/getusers", getUsers);
+//get a user
+router.get("/getuser", getUser);
+//update current user
+router.patch("/update", protect, updateUser);
 //logout current user
 router.post("/logout", protect, logoutUser);
 //delete current user
