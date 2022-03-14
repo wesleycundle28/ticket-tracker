@@ -85,13 +85,18 @@ const logoutUser = asyncHandler(async (req, res) => {
 //@access Private
 const getUsers = asyncHandler(async (req, res) => {
   console.log(req.user);
-  try {
-    const users = await User.find({});
-    res.json(users);
-  } catch (error) {
-    (error) => {
-      res.json({ message: error });
-    };
+  const userRole = req.user.role;
+  if (userRole === "admin") {
+    try {
+      const users = await User.find({});
+      res.json(users);
+    } catch (error) {
+      (error) => {
+        res.json({ message: error });
+      };
+    }
+  } else if (userRole === "developer") {
+    res.json({ warning: "you are not authorized to view users" });
   }
 });
 
