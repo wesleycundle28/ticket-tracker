@@ -84,16 +84,29 @@ const logoutUser = asyncHandler(async (req, res) => {
 //@route GET /users
 //@access Private
 const getUsers = asyncHandler(async (req, res) => {
+  //get user role
   const userRole = req.user.role;
+  //response if user role is admin
   if (userRole === "admin") {
     try {
+      //find all users
       const users = await User.find({});
-      res.json(users);
+      //response if users exist
+      if (users) {
+        res.json(users);
+        //response if user do not exist
+      } else if (!users) {
+        res.json({ error: "users not found" });
+        //catch all for any other errors
+      } else {
+        res.json({ error: "something went wrong" });
+      }
     } catch (error) {
       (error) => {
         res.json({ message: error });
       };
     }
+    //response if user role is developer
   } else if (userRole === "developer") {
     res.json({ warning: "you are not authorized to view users" });
   }
@@ -104,19 +117,34 @@ const getUsers = asyncHandler(async (req, res) => {
 //@access Private
 
 const getUser = asyncHandler(async (req, res) => {
+  //get id for specified user
   const id = req.body.id;
+  //get user role from req.user
   const userRole = req.user.role;
+  //response if user has role of admin
   if (userRole === "admin") {
     try {
+      //find user specified
       const user = await User.findById(id);
-      res.json(user);
+      //response if user is in database
+      if (user) {
+        res.json(user);
+        //response if user is not in database
+      } else if (!user) {
+        res.json({ error: "user not found" });
+        //catch all for all other errors
+      } else {
+        res.json({ error: "something went wrong" });
+      }
     } catch {
       (error) => {
         res.json({ message: error });
       };
     }
+    //response if user has role of developer
   } else if (userRole === "developer") {
     res.json({ warning: "you do not have permission to view users" });
+    //catch all response for all other errors
   } else {
     res.json({ error: "something went wrong" });
   }
