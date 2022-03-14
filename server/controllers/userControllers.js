@@ -105,14 +105,20 @@ const getUsers = asyncHandler(async (req, res) => {
 
 const getUser = asyncHandler(async (req, res) => {
   const id = req.body.id;
-  console.log(req.params);
-  try {
-    const user = await User.findById(id);
-    res.json(user);
-  } catch {
-    (error) => {
-      res.json({ message: error });
-    };
+  const userRole = req.user.role;
+  if (userRole === "admin") {
+    try {
+      const user = await User.findById(id);
+      res.json(user);
+    } catch {
+      (error) => {
+        res.json({ message: error });
+      };
+    }
+  } else if (userRole === "developer") {
+    res.json({ warning: "you do not have permission to view users" });
+  } else {
+    res.json({ error: "something went wrong" });
   }
 });
 
