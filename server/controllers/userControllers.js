@@ -10,15 +10,17 @@ const User = require("../models/userModel");
 const registerUser = asyncHandler(async (req, res) => {
   //info from client
   const { name, email, password, role } = req.body;
-  const emailLower = email.toString().toLowerCase();
+  // const emailLower = email.toString().toLowerCase();
   //check for user in database
   const userExists = await User.findOne({ email });
   if (!userExists) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
     const user = await new User({
-      email: emailLower,
+      name: name,
+      email: email,
       password: hash,
+      role: role,
     });
     await user.save();
     res.json({
@@ -71,9 +73,18 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const deleteUser = asyncHandler(async (req, res) => {
-  const user = req.body.user;
-  const deleteAction = user.findByIdAndDelete;
-  await deleteAction;
+  console.log(req.user);
+  userRole = req.user.role;
+  userEmail = req.user.email;
+  findUser = await User.findOne({ userEmail });
+  if (findUser.role === "admin") {
+    console.log(`admin: ${userRole}`);
+  } else if (find === "developer") {
+    console.log(`developer:${userRole}`);
+  } else if (!findUser) {
+    console.log("User Not Found!");
+  }
+  res.json("user deleted");
 });
 
 module.exports = { registerUser, loginUser, logoutUser, deleteUser };
