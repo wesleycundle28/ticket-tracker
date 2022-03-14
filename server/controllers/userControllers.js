@@ -119,16 +119,16 @@ const updateUser = asyncHandler(async (req, res) => {
   //aquire user's role
   const userRole = await req.user.role;
   //retrieve info for user to update
-  const { _id, name, email, password } = await req.body;
+  const { _id, name, email, password, role } = await req.body;
   //salt and hash password for storage in database
   const salt = await bcrypt.genSalt(10);
   const hash = await bcrypt.hash(password, salt);
   //response if all fields have been filled
-  if (name && email && password) {
+  if (name && email && password && role) {
     //find user by id and update specified fields
     const userToUpdate = await User.findOneAndUpdate(
       { _id: _id },
-      { name: name, email: email, password: hash },
+      { name: name, email: email, password: hash, role: role },
       { new: true }
     );
     //response if user role is admin and user to update exists
@@ -145,7 +145,7 @@ const updateUser = asyncHandler(async (req, res) => {
       res.json({ error: "something went wrong" });
     }
     //response if one of the fields is missing/empty
-  } else if (!name || !email || !password) {
+  } else if (!name || !email || !password || !role) {
     res.json({ error: "please fill in all fields!" });
     //catch all error response
   } else {
