@@ -84,7 +84,6 @@ const logoutUser = asyncHandler(async (req, res) => {
 //@route GET /users
 //@access Private
 const getUsers = asyncHandler(async (req, res) => {
-  console.log(req.user);
   const userRole = req.user.role;
   if (userRole === "admin") {
     try {
