@@ -16,9 +16,9 @@ router.post("/register", registerUser);
 //login specific user
 router.post("/login", loginUser);
 //get all users
-router.get("/getusers", getUsers);
+router.get("/getusers", protect, getUsers);
 //get a user
-router.get("/getuser", getUser);
+router.get("/getuser", protect, getUser);
 //update current user
 router.patch("/update", protect, updateUser);
 //logout current user

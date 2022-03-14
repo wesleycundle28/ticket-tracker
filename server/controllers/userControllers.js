@@ -15,7 +15,7 @@ const registerUser = asyncHandler(async (req, res) => {
   const userExists = await User.findOne({ email });
   //response if user does not exist in the database
   if (!userExists) {
-    //create new user, salt and hash password for database storage
+    // salt and hash password for database storage,create new user
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(password, salt);
     const user = await new User({
@@ -60,6 +60,7 @@ const loginUser = asyncHandler(async (req, res) => {
       token: generateToken(user._id),
       success: "logged in successfully",
     });
+
     //response if user exists nd password is not correct
   } else if (user && !(await bcrypt.compare(password, user.password))) {
     res.json({ error: "invalid password" });
@@ -83,6 +84,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 //@route GET /users
 //@access Private
 const getUsers = asyncHandler(async (req, res) => {
+  console.log(req.user);
   try {
     const users = await User.find({});
     res.json(users);
