@@ -4,7 +4,7 @@ import { Navbar, Footer } from "../index";
 
 export const Layout = () => {
   return (
-    <main>
+    <main className="main-container">
       <Navbar />
       <Outlet />
       <Footer />

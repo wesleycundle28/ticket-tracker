@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/index";
-import { Home, Missing } from "./pages/index";
+import { Admin, Developer, Home, Missing } from "./pages/index";
 import "./App.css";
 
 function App() {
@@ -9,6 +9,15 @@ function App() {
       <Route path="/" element={<Layout />}>
         {/*Public Routes*/}
         <Route path="/" element={<Home />} />
+        {/*Admin Routes*/}
+        <Route path="/admin/programs" element={<Admin />} />
+        <Route path="/admin/employees" element={<Admin />} />
+        <Route path="/admin/addprogram" element={<Admin />} />
+        <Route path="/admin/addticket" element={<Admin />} />
+        {/*Admin & Developer Routes*/}
+        <Route path="/myprograms" element={<Developer />} />
+        <Route path="/mytickets" element={<Developer />} />
+        <Route path="/logout" element={<Developer />} />
         {/*catch all*/}
         <Route path="/*" element={<Missing />} />
       </Route>
