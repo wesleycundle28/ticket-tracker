@@ -1,6 +1,7 @@
 import "./Layout.css";
 import { Outlet } from "react-router-dom";
 import { Navbar, NavItem, Footer, FooterItem } from "../index";
+import { ToastContainer } from "react-toastify";
 
 export const Layout = () => {
   return (
@@ -15,10 +16,25 @@ export const Layout = () => {
         <NavItem href="/mytickets">My Tickets</NavItem>
         <NavItem href="/logout">Logout</NavItem>
       </Navbar>
-      <Outlet />
-      <Footer>
-        <FooterItem>copy</FooterItem>
-      </Footer>
+      <div className="outlet-footer-container">
+        <Outlet />
+        <ToastContainer
+          position="top-left"
+          autoClose={3000}
+          hideProgressBar={true}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="colored"
+          closeButton=""
+        />
+        <Footer>
+          <FooterItem>copy</FooterItem>
+        </Footer>
+      </div>
     </main>
   );
 };
