@@ -1,13 +1,13 @@
 import "./Layout.css";
 import { Outlet } from "react-router-dom";
-// import { Navbar, Footer } from "./index";
+import { Navbar, Footer } from "../index";
 
 export const Layout = () => {
   return (
     <main>
-      {/* <Navbar /> */}
+      <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 };

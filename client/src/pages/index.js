@@ -1,6 +1,6 @@
-import { home } from "./home/home";
-import { admin } from "./admin/admin";
-import { developer } from "./developer/developer";
-import { missing } from "./missing/missing";
+import { Home } from "./home/home";
+import { Admin } from "./admin/admin";
+import { Developer } from "./developer/developer";
+import { Missing } from "./missing/missing";
 
-export { home, developer, admin, missing };
+export { Home, Developer, Admin, Missing };

@@ -1,6 +1,6 @@
 import "./developer.css";
 
-export const developer = () => {
+export const Developer = () => {
   return (
     <>
       <h1>developer dashboard</h1>

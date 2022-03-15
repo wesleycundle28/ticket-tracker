@@ -1,6 +1,6 @@
 import "./admin.css";
 
-export const admin = () => {
+export const Admin = () => {
   return (
     <>
       <h1>admin dashboard</h1>

@@ -1,6 +1,6 @@
 import "./home.css";
 
-export const home = () => {
+export const Home = () => {
   return (
     <>
       <h1>home page</h1>
