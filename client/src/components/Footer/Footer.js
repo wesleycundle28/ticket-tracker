@@ -1,5 +1,5 @@
 import "./Footer.css";
 
-export const Footer = ({ children }) => {
-  return <div classname="footer-container">{children}</div>;
+export const Footer = ({ className, children }) => {
+  return <div className={className}>{children}</div>;
 };

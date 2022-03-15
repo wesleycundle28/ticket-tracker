@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import "./FooterItem.css";
 
 export const FooterItem = ({ href, children }) => {

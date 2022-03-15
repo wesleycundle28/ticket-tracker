@@ -18,23 +18,23 @@ export const Layout = () => {
       </Navbar>
       <div className="outlet-footer-container">
         <Outlet />
-        <ToastContainer
-          position="top-left"
-          autoClose={3000}
-          hideProgressBar={true}
-          newestOnTop={true}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-          closeButton=""
-        />
-        <Footer>
-          <FooterItem>copy</FooterItem>
+        <Footer className="footer-container">
+          <FooterItem>footer</FooterItem>
         </Footer>
       </div>
+      <ToastContainer
+        position="top-left"
+        autoClose={3000}
+        hideProgressBar={true}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        closeButton=""
+      />
     </main>
   );
 };
