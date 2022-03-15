@@ -1,6 +1,6 @@
-import "./userLogin.css";
+import "./UserLogin.css";
 
-export const userLogin = () => {
+export const UserLogin = () => {
   return (
     <>
       <h1>userLoginPage</h1>

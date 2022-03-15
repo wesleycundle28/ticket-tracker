@@ -1,6 +1,6 @@
-import "./userRegister.css";
+import "./UserRegister.css";
 
-export const userRegister = () => {
+export const UserRegister = () => {
   return (
     <>
       <h1>userRegisterPage</h1>
