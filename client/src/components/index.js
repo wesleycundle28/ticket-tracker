@@ -1,9 +1,9 @@
-import { UserRegister } from "./UserRegister/UserRegister";
-import { UserLogin } from "./UserLogin/UserLogin";
-import { Layout } from "./Layout/Layout";
-import { Navbar } from "./Navbar/Navbar";
-import { Footer } from "./Footer/Footer";
-import { NavItem } from "./NavItem/NavItem";
-import { FooterItem } from "./FooterItem/FooterItem";
+import { UserRegister } from "./UserRegister";
+import { UserLogin } from "./UserLogin";
+import { Layout } from "./Layout";
+import { Navbar } from "./Navbar";
+import { Footer } from "./Footer";
+import { NavItem } from "./NavItem";
+import { FooterItem } from "./FooterItem";
 
 export { UserLogin, UserRegister, Layout, Navbar, Footer, NavItem, FooterItem };

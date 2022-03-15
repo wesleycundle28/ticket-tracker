@@ -1,6 +1,5 @@
-import "./Layout.css";
 import { Outlet } from "react-router-dom";
-import { Navbar, NavItem, Footer, FooterItem } from "../index";
+import { Navbar, NavItem, Footer, FooterItem } from "./index";
 import { ToastContainer } from "react-toastify";
 
 export const Layout = () => {

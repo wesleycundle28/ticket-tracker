@@ -1,5 +1,3 @@
-import "./NavItem.css";
-
 export const NavItem = ({ href, children }) => {
   return (
     <li>

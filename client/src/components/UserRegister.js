@@ -1,5 +1,3 @@
-import "./UserRegister.css";
-
 export const UserRegister = () => {
   return (
     <>

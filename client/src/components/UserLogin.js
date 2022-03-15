@@ -1,5 +1,3 @@
-import "./UserLogin.css";
-
 export const UserLogin = () => {
   return (
     <>

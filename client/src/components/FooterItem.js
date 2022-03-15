@@ -1,5 +1,3 @@
-import "./FooterItem.css";
-
 export const FooterItem = ({ href, children }) => {
   return (
     <li>
