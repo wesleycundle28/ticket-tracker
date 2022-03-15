@@ -14,6 +14,7 @@ export const Layout = () => {
         <NavItem href="/admin/addticket">Add Ticket</NavItem>
         <NavItem href="/myprograms">My Programs</NavItem>
         <NavItem href="/mytickets">My Tickets</NavItem>
+        <NavItem href="/login">Login/Register</NavItem>
         <NavItem href="/logout">Logout</NavItem>
       </Navbar>
       <div className="outlet-footer-container">

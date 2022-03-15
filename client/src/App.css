@@ -9,6 +9,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+a {
+  color: black;
+  all: unset;
+  cursor: pointer;
+}
+
+a,
+a:visited {
+  color: black;
+}
+
+li {
+  all: unset;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;

@@ -17,6 +17,7 @@ function App() {
         {/*Admin & Developer Routes*/}
         <Route path="/myprograms" element={<Developer />} />
         <Route path="/mytickets" element={<Developer />} />
+        <Route path="/login" element={<Developer />} />
         <Route path="/logout" element={<Developer />} />
         {/*catch all*/}
         <Route path="/*" element={<Missing />} />
