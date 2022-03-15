@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import "./FooterItem.css";
 
-export const FooterItem = ({ to, children }) => {
+export const FooterItem = ({ href, children }) => {
   return (
     <li>
-      <Link to={to}>{children}</Link>
+      <a href={href}>{children}</a>
     </li>
   );
 };

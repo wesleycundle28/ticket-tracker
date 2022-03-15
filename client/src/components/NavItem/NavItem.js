@@ -1,10 +1,9 @@
-import { Link } from "react-router-dom";
 import "./NavItem.css";
 
-export const NavItem = ({ to, children }) => {
+export const NavItem = ({ href, children }) => {
   return (
     <li>
-      <Link to={to}>{children}</Link>
+      <a href={href}>{children}</a>
     </li>
   );
 };
